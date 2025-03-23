@@ -27,7 +27,8 @@ header {
     align-items: center; /* Align logo and title vertically */
     justify-content: center; /* Center the content horizontally */
     gap: 15px;
-    width: 90%; /* Add spacing between the logo and the title */
+    width: 100%;
+    padding-right: 5px; /* Add spacing between the logo and the title */
 }
 
 /* Logo styling */
@@ -194,6 +195,29 @@ footer {
     margin-left: auto; /* Push the search icon to the extreme right */
 }
 
+/* Search container styling */
+.search-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align to the right */
+    margin-left: auto; /* Push the search container to the right */
+}
+
+.search-icon {
+    width: 20px; /* Icon size */
+    height: 20px; /* Icon size */
+    cursor: pointer;
+    color: white; /* Make the icon white */
+    transition: transform 0.2s ease, color 0.3s ease;
+    padding-left: 5px; /* Smooth transition for hover effects */
+}
+
+.search-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    color: #cccccc; /* Slightly dim the white color on hover */
+}
+
 /* Responsive adjustments for mobile screens */
 @media (max-width: 768px) {
     .search-icon {
@@ -207,6 +231,29 @@ footer {
 }
 
 @media (max-width: 480px) {
+    #search-bar.visible {
+        width: 120px; /* Even smaller search bar for very small screens */
+    }
+}
+
+/* Responsive adjustments for mobile screens */
+@media (max-width: 768px) {
+    .search-icon {
+        width: 18px; /* Smaller size for tablets */
+        height: 18px;
+    }
+
+    #search-bar.visible {
+        width: 150px; /* Smaller search bar for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .search-icon {
+        width: 16px; /* Even smaller size for mobile */
+        height: 16px;
+    }
+
     #search-bar.visible {
         width: 120px; /* Even smaller search bar for very small screens */
     }
