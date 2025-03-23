@@ -27,7 +27,7 @@ header {
     align-items: center; /* Align logo and title vertically */
     justify-content: center; /* Center the content horizontally */
     gap: 15px;
-    width: 100%; /* Add spacing between the logo and the title */
+    width: 90%; /* Add spacing between the logo and the title */
 }
 
 /* Logo styling */
