@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const menuContainer = document.getElementById('menu-container');
     const searchBar = document.getElementById('search-bar'); // Get the search bar element
+    const searchIcon = document.querySelector('.search-icon');
+    const searchContainer = document.querySelector('.search-container');
 
     // Menu collection - embedded directly in JavaScript instead of in a separate JSON file
     const menuData = {
@@ -183,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 "price": 10.99,
                 "category": "Wraps",
                 "type": "Non-Vegetarian",
-                "image": "../images/wraps mimi.jpg"
+                "image": "./images/wraps mimi.jpg"
             },
             {
                 "id": 21,
@@ -285,6 +287,29 @@ document.addEventListener('DOMContentLoaded', () => {
     searchBar.addEventListener('input', (e) => {
         const query = e.target.value; // Get the search query
         filterMenu(query); // Filter the menu based on the query
+    });
+
+    // Toggle the visibility of the search bar when the search icon is clicked
+    searchIcon.addEventListener('click', () => {
+        if (searchBar.classList.contains('hidden')) {
+            searchBar.classList.remove('hidden');
+            searchBar.classList.add('visible');
+            searchContainer.classList.remove('hidden-bar'); // Remove the class to align the bar
+            searchBar.focus(); // Automatically focus on the search bar
+        } else {
+            searchBar.classList.remove('visible');
+            searchBar.classList.add('hidden');
+            searchContainer.classList.add('hidden-bar'); // Add the class to move the icon
+        }
+    });
+
+    // Close the search bar when the user clicks outside of it
+    document.addEventListener('click', (event) => {
+        if (!event.target.closest('.search-container')) {
+            searchBar.classList.remove('visible');
+            searchBar.classList.add('hidden');
+            searchContainer.classList.add('hidden-bar'); // Add the class to move the icon
+        }
     });
 
     // Initial render of the full menu
